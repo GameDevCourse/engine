@@ -83,3 +83,18 @@ declare namespace engine {
 declare namespace engine {
     let run: (canvas: HTMLCanvasElement) => DisplayObjectContainer;
 }
+declare namespace engine.res {
+    interface Processor {
+        load(url: string, callback: Function): void;
+    }
+    class ImageProcessor implements Processor {
+        load(url: string, callback: Function): void;
+    }
+    class TextProcessor implements Processor {
+        load(url: string, callback: Function): void;
+    }
+    function mapTypeSelector(typeSelector: (url: string) => string): void;
+    function load(url: string, callback: (data: any) => void): void;
+    function get(url: string): any;
+    function map(type: string, processor: Processor): void;
+}
